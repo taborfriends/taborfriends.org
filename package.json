@@ -1,0 +1,10 @@
+{
+  "name": "taborfriends.org",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@11.20.0",
+  "scripts": {},
+  "devDependencies": {
+    "nx": "^24.0.5"
+  }
+}

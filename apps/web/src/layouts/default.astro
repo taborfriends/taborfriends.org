@@ -1,0 +1,218 @@
+---
+import '../styles/global.css';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+    <header>
+      <a href="/" rel="home">
+        <img
+          src="/images/friends-of-mt-tabor-park-logo.png"
+          alt="drawing of an evergreen tree and a lamppost in Mt. Tabor Park" 
+          class="logo"
+        />
+        Friends of<br>
+        Mt. Tabor Park
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#">Park Resources</a>
+        <a href="#">About</a>
+        <a href="#">Events</a>
+        <a href="#">Tree Guide</a>
+        <a href="#">Volunteer</a>
+        <a href="#">Donate</a>
+        <a href="#">Newsletter</a>
+      </nav>
+
+
+      <button class="menu-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <path
+            fill="#000"
+            d="M0 1a1 1 0 0 1 1-1h22a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1ZM0 10a1 1 0 0 1 1-1h22a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1v-4Z"
+            style="fill:#000;fill-opacity:1"
+          ></path>
+          <rect
+            width="24"
+            height="6"
+            y="18"
+            fill="#000"
+            rx="1"
+            style="fill:#000;fill-opacity:1"
+          ></rect>
+        </svg>
+      </button>
+    </header>
+		
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <section>
+        <h4>Address</h4>
+        <address>
+          <a href="https://maps.app.goo.gl/ySfh572GtZ9Y1JKw6">SE 60th Ave & SE Salmon St<br>
+          Portland, OR 97215</a>
+        </address>
+      </section>
+
+      <section>
+        <h4>Park Hours</h4>
+        <p>XX:XX–XX:XX</p>
+        
+        <h4>Visitor Center Hours</h4>
+        <p>XX:XX–XX:XX</p>
+      </section>
+
+      <section>
+        <h4>Email</h4>
+        <address>
+          <a href="mailto:email@email.com">email@email.com</a>
+        </address>
+      </section>
+
+      <section>
+        <img src="/images/taborfriends-logo.avif" alt="Friends of Mt. Tabor" class="logo" />
+      </section>
+    </footer>
+	</body>
+</html>
+
+<script>
+	function setupNav() {
+		const nav = document.querySelector('.main-nav');
+		const menuToggleBtn = document.querySelector('.menu-toggle');
+
+		function handleToggle() {
+      console.log('test')
+			nav?.classList.toggle('open');
+		}
+
+		// View Transitions + astro:page-load cause this code to re-execute
+		// remove the listener first to avoid duplicate listeners
+		menuToggleBtn?.removeEventListener('click', handleToggle);
+
+		menuToggleBtn?.addEventListener('click', handleToggle);
+	}
+
+	// document.addEventListener('astro:page-load', setupNav);
+  setupNav();
+</script>
+
+<style>
+
+  body {
+    font-family: system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin: 0;
+    overflow-inline: hidden;
+  }
+
+  header {
+    align-items: start;
+    background-color: var(--color-tan);
+    block-size: 64px;
+    display: flex;
+    inline-size: 100dvi;
+    justify-content: space-between;
+    padding: 8px;
+    position: fixed;
+
+    nav {
+      background-color: rgb(255 255 255 / 0.95);
+		  block-size: calc(100dvb - 38px);
+		  display: none;
+		  inline-size: 100dvi;
+		  inset: 60px 0 0;
+      justify-content: center;
+      padding: 40px;
+      position: fixed;
+      text-align: center;
+      z-index: 100;
+
+      &.open {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        justify-content: start;
+        position: fixed;
+      }
+
+      @media (min-width: 1180px) {
+        background: none;
+        block-size: revert;
+        flex-direction: row;
+        inline-size: 100dvi;
+        inset: unset;
+        justify-content: space-between;
+        position: fixed;
+      }
+    }
+
+    a {
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1.1;
+      text-decoration: none;
+
+      &[rel="home"] {
+        align-items: center;
+        color: #000;
+        display: flex;
+        gap: 8px;
+      }
+    }
+
+    .logo {
+      block-size: 48px;
+      inline-size: auto;
+    }
+
+    .menu-toggle {
+      background: transparent;
+      border: none;
+      display: block;
+      padding: 12px;
+
+      svg {
+        aspect-ratio: 1;
+        block-size: 24px;
+        display: block;
+      }
+
+      @media (min-width: 1180px) {
+        display: none;
+      }
+    }
+  }
+
+  footer {
+    background: var(--color-tan);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    padding: 40px 24px;
+    text-align: center;
+
+    h4:not(:first-child) {
+      margin-block-start: 16px;
+    }
+
+    .logo {
+      display: block;
+      inline-size: min(40dvi, 100px);
+      margin-inline: auto;
+      z-index: 101;
+    }
+  }
+</style>

@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/default.astro'
+---
+
+<Layout>
+	<img
+		src="https://images.unsplash.com/photo-1626806425336-0369972c3d7b?q=80&w=1600&h=900&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+		alt="Mt. Tabor Park"
+	/>
+	
+	<section>
+		<h1>Friends of Mt. Tabor Park</h1>
+		<p>
+			The Friends of Mt. Tabor Park is a volunteer-driven community group that 
+			nurtures Mt. Tabor Park as a healthy and thriving urban oasis for everyone. 
+			Come explore nature and history with us, and learn how you can help!
+		</p>
+		<nav class="page-options">
+			<a href="#">
+				Upcoming Events
+				<small>See what's happening at the park</small>
+			</a>
+
+			<a href="#">
+				Reserve Space
+				<small>Book private events with Portland Parks & Rec</small>
+			</a>
+			
+			<a href="#">
+				Report a Problem
+				<small>How to report maintenance issues</small>
+			</a>
+			
+			<a href="#">
+				Donate
+				<small>Help us keep our programs running</small>
+			</a>
+			
+			<a href="#">
+				Volunteer
+				<small>Get involved and be a Friend of Mt. Tabor</small>
+			</a>
+		</nav>
+	</section>
+</Layout>
+
+<style>
+	h1 {
+		font-size: clamp(1.25rem, 7cqi, 1.75rem);
+	}
+
+	img {
+		display: block;
+		inline-size: 100dvi;
+	}
+
+	section {
+    margin-inline: auto;
+    max-inline-size: min(90dvi, 1000px);
+    padding-block: 40px;
+	}
+
+	.page-options {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		margin-block-start: 40px;
+
+		a {
+			border: 1px solid black;
+			color: inherit;
+			display: block;
+			font-size: 1.25rem;
+			font-weight: 700;
+			padding: 16px;
+			text-align: center;
+			text-decoration: none;
+
+			small {
+				display: block;
+				font-size: 0.825rem;
+				font-style: italic;
+				font-weight: normal;
+			}
+		}
+	}
+</style>

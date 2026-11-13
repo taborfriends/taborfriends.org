@@ -1,0 +1,17 @@
+:root {
+  --color-tan: rgb(245 235 200);
+}
+
+* {
+  box-sizing: border-box;
+  line-height: 1.45;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  line-height: 1.1;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
