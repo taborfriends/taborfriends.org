@@ -4,6 +4,8 @@ import { createHash } from 'node:crypto';
 async function getTimestamps() {
   const DB_CLIENT = createClient({
     projectId: process.env.SANITY_PROJECT_ID,
+    dataset: 'production',
+    apiVersion: '2026-11-15',
     useCdn: false, // make sure you skip the cdn
   });
 
