@@ -20,7 +20,6 @@
     "targets": {
       "build": {
         "inputs": [
-          "build",
           {
             "runtime": "node tools/sanity-hash.ts"
           }
