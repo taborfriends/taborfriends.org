@@ -12,7 +12,7 @@ export interface Props {
 
 const { title } = Astro.props;
 
-const pageTitle = title === 'Friends of Mt. Tabor' ? title : `${title} · Friends of Mt. Tabor`;
+const pageTitle = title === 'Friends of Mt. Tabor Park' ? title : `${title} · Friends of Mt. Tabor Park`;
 ---
 
 <html lang="en">
@@ -27,7 +27,7 @@ const pageTitle = title === 'Friends of Mt. Tabor' ? title : `${title} · Friend
 
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-    
+
 		<title>{pageTitle}</title>
 	</head>
 	<body>
