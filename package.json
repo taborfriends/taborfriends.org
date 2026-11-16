@@ -5,6 +5,10 @@
   "packageManager": "pnpm@11.20.0",
   "scripts": {},
   "devDependencies": {
+    "@types/node": "^26.6.6",
     "nx": "^24.0.5"
+  },
+  "dependencies": {
+    "@sanity/client": "^8.16.0"
   }
 }

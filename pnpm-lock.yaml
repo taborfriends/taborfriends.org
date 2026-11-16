@@ -7,7 +7,14 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@sanity/client':
+        specifier: ^8.16.0
+        version: 8.16.0
     devDependencies:
+      '@types/node':
+        specifier: ^26.6.6
+        version: 26.6.6
       nx:
         specifier: ^24.0.5
         version: 24.0.5
@@ -2041,6 +2048,10 @@ packages:
 
   '@sanity/client@8.15.0':
     resolution: {integrity: sha512-CgmNhvXCD8S0LpXr0YMPNPw0/pzzJ+WbO0vmgu0aISHo+AZDS+ke0G+xuZitqFsgUwYso9zBxJKYpoJnoUOvyA==}
+    engines: {node: '>=22.12.0'}
+
+  '@sanity/client@8.16.0':
+    resolution: {integrity: sha512-x6VKopU1Rt2mp3YBQRBIyWE2ebzqc4sMwUbQJJzIzNS0TMnNURvHe/z1qo/bDIph37B5vYvfWIT7Js6SPAQkUQ==}
     engines: {node: '>=22.12.0'}
 
   '@sanity/codegen@8.3.0':
@@ -4905,6 +4916,7 @@ packages:
 
   tldts-core@7.4.20:
     resolution: {integrity: sha512-C630TWXZCZmLq0F2bW4QqwnaaxCQ/svpAqvJwnC4JvgEM5ohhBnGsEzTLSOXcN+xjz+kEaHS5uoWIw2klnqd0A==}
+    deprecated: Partial release, see https://github.com/remusao/tldts/issues/2735. Use >=7.4.22.
 
   tldts@7.4.19:
     resolution: {integrity: sha512-48dH6aSpQnpbzDUc4vIQZ1VjB8tkK+e8c1yx05/SZK+rkssgjEOlxDd/yU8/a4vGYQ9vRgJr9dwMq9TJ0b3X2Q==}
@@ -7676,6 +7688,15 @@ snapshots:
       rxjs: 7.8.2
 
   '@sanity/client@8.15.0':
+    dependencies:
+      eventsource: 5.1.5
+      get-it: 9.7.0
+      obug: 3.0.0
+      rxjs: 7.8.2
+    transitivePeerDependencies:
+      - vitest
+
+  '@sanity/client@8.16.0':
     dependencies:
       eventsource: 5.1.5
       get-it: 9.7.0
