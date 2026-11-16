@@ -42,6 +42,12 @@ importers:
 
   apps/web:
     dependencies:
+      '@arraypress/sanity-loader-astro':
+        specifier: ^1.0.1
+        version: 1.0.1(@sanity/client@7.28.0)(astro@7.4.8(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))
+      '@portabletext/to-html':
+        specifier: ^6.0.0
+        version: 6.0.0
       astro:
         specifier: ^7.4.8
         version: 7.4.8(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1)
@@ -78,6 +84,12 @@ packages:
   '@architect/utils@6.0.3':
     resolution: {integrity: sha512-6m2Tpw/X5lHy0551TcGyDFY8RxNUegcZYbgt6N/fZ3o+fK0b03W6xecS8lXrnxxbUk9EWrweI/9TbJIysafdbg==}
     engines: {node: '>=22'}
+
+  '@arraypress/sanity-loader-astro@1.0.1':
+    resolution: {integrity: sha512-SsHEV0UhRKuiYamEyhwL6vltg/8WLYwd9wR68gKfuyJPhk3qibak0KSoQZZ0lYOdWM9KNWchurxImTDzJM56bw==}
+    peerDependencies:
+      '@sanity/client': ^6.0.0 || ^7.0.0
+      astro: ^5.0.0 || ^6.0.0 || ^7.0.0
 
   '@asamuzakjp/css-color@5.1.11':
     resolution: {integrity: sha512-KVw6qIiCTUQhByfTd78h2yD1/00waTmm9uy/R7Ck/ctUyAPj+AEDLkQIdJW0T8+qGgj3j5bpNKK7Q3G+LedJWg==}
@@ -5449,6 +5461,11 @@ snapshots:
     dependencies:
       '@aws-lite/client': 0.23.7
       lambda-runtimes: 3.0.0
+
+  '@arraypress/sanity-loader-astro@1.0.1(@sanity/client@7.28.0)(astro@7.4.8(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))':
+    dependencies:
+      '@sanity/client': 7.28.0
+      astro: 7.4.8(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1)
 
   '@asamuzakjp/css-color@5.1.11':
     dependencies:

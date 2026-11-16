@@ -12,6 +12,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@arraypress/sanity-loader-astro": "^1.0.1",
+    "@portabletext/to-html": "^6.0.0",
     "astro": "^7.4.8"
   }
 }

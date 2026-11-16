@@ -12,6 +12,13 @@ const navItem = defineType({
       title: 'Label',
     }),
     defineField({
+      name: 'description',
+      type: 'string',
+      title: 'Description',
+      description:
+        'Used for page action links only. Not used for site navigation.',
+    }),
+    defineField({
       name: 'link',
       type: 'array',
       validation: (rule) => rule.max(1).required(),
@@ -77,17 +84,17 @@ const navItem = defineType({
 
 const navbar = defineType({
   name: 'navbar',
-  title: 'Site Navigation',
+  title: 'Navigation',
   type: 'document',
   fields: [
     defineField({
       name: 'title',
-      title: 'Site Navigation',
+      title: 'Nav Title',
       type: 'string',
     }),
     defineField({
       name: 'items',
-      title: 'Site Navigation Items',
+      title: 'Navigation Items',
       type: 'array',
       of: [
         defineArrayMember({

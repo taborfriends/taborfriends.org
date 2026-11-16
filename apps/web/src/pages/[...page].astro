@@ -1,0 +1,84 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import { toHTML } from '@portabletext/to-html';
+import Layout from '../layouts/default.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('page');
+
+  return pages.map(page => ({
+    params: { page: page.data.slug.current === 'home' ? undefined : page.data.slug.current },
+    props: page.data,
+  }));
+}
+
+const { actionLinks, body, image, title } = Astro.props;
+const bodyHTML = toHTML(body);
+---
+
+<Layout>
+  <Image src={image.url} alt="" width={image.dimensions.width} height={image.dimensions.height} layout='constrained' />
+
+	<section>
+		<h1>{title}</h1>
+		<Fragment set:html={bodyHTML} />
+		{actionLinks ? (<nav class="page-options">
+      {actionLinks.map((actionLink: { link: string; openInNewTab: boolean; label: string; description: string; 	}) => {
+        const url = new URL(actionLink.link, Astro.site);
+        const target = actionLink.openInNewTab ? '[_blank]' : null;
+
+        return (
+          <a href={url.toString()} target={target}>
+            {actionLink.label}
+            {actionLink.description ? (<small>{actionLink.description}</small>) : null}
+          </a>
+        )
+      })}
+		</nav>) : null}
+	</section>
+  
+</Layout>
+
+<style>
+	h1 {
+		font-size: clamp(1.25rem, 7cqi, 1.75rem);
+	}
+
+	img {
+    block-size: auto;
+		display: block;
+		inline-size: 100dvi;
+	}
+
+	section {
+    margin-inline: auto;
+    max-inline-size: min(90dvi, 600px);
+    padding-block: 40px;
+	}
+
+	.page-options {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		margin-block-start: 40px;
+
+		a {
+			border: 1px solid black;
+			color: inherit;
+			display: block;
+			font-size: 1.25rem;
+			font-weight: 700;
+			padding: 16px;
+			text-align: center;
+			text-decoration: none;
+
+			small {
+				display: block;
+				font-size: 0.825rem;
+				font-style: italic;
+				font-weight: normal;
+			}
+		}
+	}
+</style>

@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity';
+import { defineArrayMember, defineField, defineType } from 'sanity';
 
 export const page = defineType({
   name: 'page',
@@ -17,9 +17,24 @@ export const page = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'image',
+      type: 'image',
+    }),
+    defineField({
       name: 'body',
       type: 'array',
       of: [{ type: 'block' }],
+    }),
+    defineField({
+      name: 'actionLinks',
+      description:
+        'If used, this creates a list of button-style links on the page.',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'navItem',
+        }),
+      ],
     }),
   ],
   preview: {
