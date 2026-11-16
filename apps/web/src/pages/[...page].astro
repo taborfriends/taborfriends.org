@@ -17,7 +17,7 @@ const { actionLinks, body, image, title } = Astro.props;
 const bodyHTML = toHTML(body);
 ---
 
-<Layout>
+<Layout title={title}>
   <Image src={image.url} alt="" width={image.dimensions.width} height={image.dimensions.height} layout='constrained' />
 
 	<section>
